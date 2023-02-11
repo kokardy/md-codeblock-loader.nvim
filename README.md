@@ -1,9 +1,19 @@
 # md-codeblock-loader.nvim
-neovim plugin that write file contents into markdown code block
+neovim plugin for writing file contents into markdown code block
 
+## Requires
+- "nvim-treesitter/nvim-treesitter"
+- tree-sitter markdown
 ## Install
 ```lua
-use({"kokardy/md-codeblock-loader.nvim"})
+use({
+    "kokardy/md-codeblock-loader.nvim", 
+    requires = { "nvim-treesitter/nvim-treesitter" },
+})
+```
+
+```vim
+:TSInstall markdown
 ```
 
 ### Usage
