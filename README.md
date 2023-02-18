@@ -1,6 +1,10 @@
 # md-codeblock-loader.nvim
 neovim plugin for writing file contents into markdown code block
 
+## How work
+![How work](https://user-images.githubusercontent.com/2720900/219847815-149ab9c4-9915-40ad-afd1-852a77819dc2.mp4)
+
+
 ## Requires
 - "nvim-treesitter/nvim-treesitter"
 - tree-sitter markdown
