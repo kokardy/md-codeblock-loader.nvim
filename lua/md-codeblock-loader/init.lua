@@ -31,10 +31,10 @@ local read_file = function(filename, _start, _end)
 end
 
 local _find_code_block = function(search_range)
-  -- find code_fence_content node
+  -- find fenced_code_block node
   -- Cursor must be on ``` delimiter
   search_range = search_range or 10
-  local code_fence_content_type = "code_fence_content"
+  local fenced_code_block_type = "fenced_code_block"
   local fenced_code_block_delimiter_type = "fenced_code_block_delimiter"
 
   local current_node = ts_utils.get_node_at_cursor()
@@ -51,7 +51,7 @@ local _find_code_block = function(search_range)
       break
     end
 
-    if next_node:type() == code_fence_content_type then
+    if next_node:type() == fenced_code_block_type then
       return next_node
     end
 
@@ -60,7 +60,7 @@ local _find_code_block = function(search_range)
       if parent_node == nil then
         break
       end
-      if parent_node:type() == code_fence_content_type then
+      if parent_node:type() == fenced_code_block_type then
         return parent_node
       end
       parent_node = parent_node:parent()
@@ -87,7 +87,7 @@ M.load = function(filename, _start, _end)
   local start = code_block_node:start()
   local end_ = code_block_node:end_()
 
-  vim.api.nvim_buf_set_lines(0, start, end_, false, lines)
+  vim.api.nvim_buf_set_lines(0, start+1, end_-1, false, lines)
 end
 
 return M

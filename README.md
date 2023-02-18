@@ -32,3 +32,6 @@ use({
 ```vim
 :lua require("md-codeblock-loader.nvim").load("test.py", 2, 10)
 ```
+
+```python
+```
